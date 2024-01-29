@@ -1,0 +1,7 @@
+.nuxt-link-active {
+  @apply text-black hover:text-blue-600;
+}
+
+/* .blur {
+    filter: blur(4px);
+  } */
