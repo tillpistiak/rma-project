@@ -11,7 +11,6 @@
 ## Installation
 
 
-
 ### 1. Bereitstellen der Website mit Docker
 
 ```bash
@@ -142,15 +141,3 @@ Zum Hosten des Frontends wird ein Node 12 Alpine Image verwendet. Dabei handelt 
     CMD [ "npm", "start" ]
    ```
 
-### 5. Mögliche Anpassungen für "Produktionseinsatz"
-
-- Einsatz von nginx
-  - Hosting von Frontend (Umstellung zu SSG notwendig)
-  - Reverse Proxy für Backend (und Frontend mit SSR)
-  - TLS Terminierung für HTTPS
-  - "Verstecken" von Datenbank und Adminer vor Öffentlichkeit im privaten Netzwerk
-
-- Andere Anpassungen, beispielhaft
-  - Sichere Passwörter verwenden
-  - SEO (Tags, Performance, Metadaten)
-  - Responsiveness => Für Mobile optimieren
