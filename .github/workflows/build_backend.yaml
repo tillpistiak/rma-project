@@ -1,4 +1,4 @@
-name: build_push
+name: build_backend
 
 on:
   workflow_dispatch:
