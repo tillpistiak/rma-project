@@ -7,7 +7,7 @@ WORKDIR /usr/src/nuxt-app
 RUN apk update && apk upgrade
 RUN apk add git
 
-ENV SERVER_URL="http://rma-backend.tillpistiak.com"
+ENV SERVER_URL="https://rma-backend.tillpistiak.com"
 
 COPY . /usr/src/nuxt-app/
 RUN npm install
