@@ -7,7 +7,11 @@ var upload = multer();
 app.use(upload.array());
 app.use(
   cors({
-    origin: ["http://localhost:8000", "http://localhost:3000"],
+    origin: [
+      "http://localhost:8000",
+      "http://localhost:3000",
+      "https://rma.tillpistiak.com",
+    ],
   })
 );
 

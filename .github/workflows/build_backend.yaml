@@ -8,7 +8,7 @@ on:
         required: true
 
 jobs:
-  build-and-push:
+  build-backend:
     runs-on: ubuntu-latest
 
     steps:
@@ -43,11 +43,3 @@ jobs:
           file: ./server/Dockerfile
           push: true
           tags: ghcr.io/${{ github.repository }}/rma-project-backend:${{ github.event.inputs.tag }}, ghcr.io/${{ github.repository }}/rma-project-backend:latest
-
-      - name: Build and push frontend
-        uses: docker/build-push-action@v5
-        with:
-          context: ./web
-          file: ./web/Dockerfile
-          push: true
-          tags: ghcr.io/${{ github.repository }}/rma-project-frontend:${{ github.event.inputs.tag }}, ghcr.io/${{ github.repository }}/rma-project-frontend:latest
