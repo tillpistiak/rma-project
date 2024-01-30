@@ -29,7 +29,7 @@ spec:
       containers:
         - name: backend
           image: ghcr.io/tillpistiak/rma-project/rma-project-backend:latest
-          imagePullPolicy: IfNotPresent
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           envFrom:

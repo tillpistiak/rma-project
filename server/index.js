@@ -36,18 +36,20 @@ app.get("/comments", async (req, res) => {
 });
 
 app.post("/comments", async (req, res) => {
-  const client = new Client();
-  client.connect();
-  await client.query("begin");
-  let { response, error } = await client.query(
-    "INSERT INTO comments (comment, title, dog_id, author) VALUES ($1, $2, $3, $4)",
-    [req.body.comment, req.body.title, req.body.dog, req.body.user]
-  );
-  if (!error) {
-    await client.query("commit");
+  if (process.env.SERVER_MODE !== "readonly") {
+    const client = new Client();
+    client.connect();
+    await client.query("begin");
+    let { response, error } = await client.query(
+      "INSERT INTO comments (comment, title, dog_id, author) VALUES ($1, $2, $3, $4)",
+      [req.body.comment, req.body.title, req.body.dog, req.body.user]
+    );
+    if (!error) {
+      await client.query("commit");
+    }
+    client.end();
   }
-  client.end();
-  res.sendStatus(200);
+  res.sendStatus(202);
 });
 
 const port = process.env.PORT || 8004;

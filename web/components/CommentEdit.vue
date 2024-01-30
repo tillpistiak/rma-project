@@ -92,6 +92,9 @@ export default {
       fd.append('user', this.name);
       fd.append('dog', this.dogId);
       await this.$http.$post(`${process.env.serverUrl}/comments`, fd);
+      this.comment = '';
+      this.title = '';
+      this.name = '';
       this.refresh();
     },
   },
